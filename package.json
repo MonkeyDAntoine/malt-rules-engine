@@ -1,0 +1,27 @@
+{
+  "name": "malt-rules-engine",
+  "version": "1.0.0",
+  "description": "Use json-rules-engine to calculate a result from a fact given configured rules via exposed API",
+  "main": "app.js",
+  "scripts": {
+    "start": "node app.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/MonkeyDAntoine/malt-rules-engine.git"
+  },
+  "author": "Antoine ENGELAERE",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/MonkeyDAntoine/malt-rules-engine/issues"
+  },
+  "homepage": "https://github.com/MonkeyDAntoine/malt-rules-engine#readme",
+  "dependencies": {
+    "express": "^4.16.4",
+    "ipstack": "^0.1.1",
+    "json-rules-engine": "^2.3.2",
+    "moment": "^2.24.0",
+    "timestring": "^5.0.1"
+  }
+}

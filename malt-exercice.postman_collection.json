@@ -1,0 +1,143 @@
+{
+	"info": {
+		"_postman_id": "bd95f406-5387-4c8c-b2fa-9bffd82eb081",
+		"name": "Malt Exercice",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Add rule",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"id\": \"...\",\n    \"name\": \"spain or repeat\",\n    \"rate\": {\n        \"percent\": 8\n    },\n    \"restrictions\": {\n        \"all\": [\n            {\n                \"any\": [\n                    {\n                        \"fact\": \"@mission.duration\",\n                        \"operator\": \"durationGreaterThanInclusive\",\n                        \"value\": \"2months\"\n                    },\n                    {\n                        \"fact\": \"@commercialrelation.duration\",\n                        \"operator\": \"durationGreaterThanInclusive\",\n                        \"value\": \"2months\"\n                    }\n                ]\n            },\n            {\n                \"fact\": \"@client.location\",\n                \"operator\": \"equal\",\n                \"value\": \"ES\"\n            },\n            {\n                \"fact\": \"@freelance.location\",\n                \"operator\": \"equal\",\n                \"value\": \"ES\"\n            }\n        ]\n    }\n}"
+				},
+				"url": {
+					"raw": "localhost:3000/rule",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"rule"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Fees shoud be 8",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"mission\": {\n        \"duration\": \"3months\"\n    },\n    \"client\": {\n    \t\"ip\": \"217.127.206.227\"\n    },\n    \"freelance\": {\n    \t\"ip\": \"217.127.206.227\"\n    },\n    \"commercialrelation\": {\n        \"firstmission\": \"2018-04-16 13:24:17.510Z\",\n        \"last_mission\": \"2018-07-16 14:24:17.510Z\"\n    }\n}"
+				},
+				"url": {
+					"raw": "localhost:3000/check/fees",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"check",
+						"fees"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Fees should be 10 (default)",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"mission\": {\n        \"duration\": \"1month\"\n    },\n    \"client\": {\n    \t\"ip\": \"217.127.206.227\"\n    },\n    \"freelance\": {\n    \t\"ip\": \"217.127.206.227\"\n    },\n    \"commercialrelation\": {\n        \"firstmission\": \"2018-04-16 13:24:17.510Z\",\n        \"last_mission\": \"2018-05-16 14:24:17.510Z\"\n    }\n}"
+				},
+				"url": {
+					"raw": "localhost:3000/check/fees",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"check",
+						"fees"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Rule",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "localhost:3000/rule/...",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"rule",
+						"..."
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Rules",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "localhost:3000/rules",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"rules"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
