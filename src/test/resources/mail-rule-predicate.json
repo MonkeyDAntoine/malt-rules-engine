@@ -1,0 +1,76 @@
+{
+  "and": [
+    {
+      "or": [
+        {
+          "is-true": [
+            {
+              "function": {
+                "name": "duration >=",
+                "parameters": {
+                  "mission": {
+                    "value": "${contract.mission}"
+                  },
+                  "duration": {
+                    "value": "2months"
+                  }
+                }
+              }
+            }
+          ]
+        },
+        {
+          "is-true": [
+            {
+              "function": {
+                "name": "duration >=",
+                "parameters": {
+                  "mission": {
+                    "value": "${contract.commercialRelation}"
+                  },
+                  "duration": {
+                    "value": "2months"
+                  }
+                }
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "equal": [
+        {
+          "value": "ES"
+        },
+        {
+          "function": {
+            "name": "ipLocation",
+            "parameters": {
+              "contractor": {
+                "value": "${contract.client}"
+              }
+            }
+          }
+        }
+      ]
+    },
+    {
+      "equal": [
+        {
+          "value": "ES"
+        },
+        {
+          "function": {
+            "name": "ipLocation",
+            "parameters": {
+              "contractor": {
+                "value": "${contract.freelance}"
+              }
+            }
+          }
+        }
+      ]
+    }
+  ]
+}
