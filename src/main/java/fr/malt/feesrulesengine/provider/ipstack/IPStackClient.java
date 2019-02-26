@@ -30,7 +30,7 @@ public class IPStackClient {
 
   public IPStackResponse locate(final Contractor contractor) {
     return rest.getForEntity(
-            uriBuilder.path(contractor.getIp()).build().toUri(), IPStackResponse.class)
+            uriBuilder.cloneBuilder().path(contractor.getIp()).build().toUri(), IPStackResponse.class)
         .getBody();
   }
 }
