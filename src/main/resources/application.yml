@@ -1,0 +1,3 @@
+ipstack:
+  host: http://api.ipstack.com/
+  api-key: 72ed65708b74ff430bde3a813f163cd3

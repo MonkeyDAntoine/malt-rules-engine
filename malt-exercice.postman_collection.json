@@ -1,0 +1,151 @@
+{
+	"info": {
+		"_postman_id": "13ab94e3-d0ba-44bf-b2f9-a48c01c84410",
+		"name": "Malt Exercice Java",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Add rule",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"id\": \"...\",\n    \"name\": \"spain or repeat\",\n    \"rate\": {\n        \"percent\": 8\n    },\n    \"restrictions\": {\n        \"@or\": [\n            {\n                \"@mission.duration\": {\n                    \"gt\": \"2months\"\n                }\n            },\n            {\n                \"@commercialrelation.duration\": {\n                    \"gt\": \"2months\"\n                }\n            }\n        ],\n        \"@client.location\": {\n            \"country\": \"ES\"\n        },\n        \"@freelancer.location\": {\n            \"country\": \"ES\"\n        }\n    }\n}"
+				},
+				"url": {
+					"raw": "localhost:8080/rule",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"rule"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Fees shoud be 8",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"mission\": {\n        \"duration\": \"3months\"\n    },\n    \"client\": {\n    \t\"ip\": \"217.127.206.227\"\n    },\n    \"freelance\": {\n    \t\"ip\": \"217.127.206.227\"\n    },\n    \"commercialrelation\": {\n        \"firstmission\": \"2018-04-16T13:24:17.510Z\",\n        \"last_mission\": \"2018-07-16T14:24:17.510Z\"\n    }\n}"
+				},
+				"url": {
+					"raw": "localhost:8080/fee",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"fee"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Fees should be 10 (default)",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"mission\": {\n        \"duration\": \"1month\"\n    },\n    \"client\": {\n    \t\"ip\": \"217.127.206.227\"\n    },\n    \"freelance\": {\n    \t\"ip\": \"217.127.206.227\"\n    },\n    \"commercialrelation\": {\n        \"firstmission\": \"2018-04-16T13:24:17.510Z\",\n        \"last_mission\": \"2018-05-16T14:24:17.510Z\"\n    }\n}"
+				},
+				"url": {
+					"raw": "localhost:8080/fee",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"fee"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Rule",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "localhost:8080/rule/...",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"rule",
+						"..."
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Rules",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "localhost:8080/rule?page=0&size=1",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"rule"
+					],
+					"query": [
+						{
+							"key": "page",
+							"value": "0"
+						},
+						{
+							"key": "size",
+							"value": "1"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

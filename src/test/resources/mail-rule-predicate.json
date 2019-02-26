@@ -1,0 +1,20 @@
+{
+  "@or": [
+    {
+      "@mission.duration": {
+        "gt": "2months"
+      }
+    },
+    {
+      "@commercialrelation.duration": {
+        "gt": "2months"
+      }
+    }
+  ],
+  "@client.location": {
+    "country": "ES"
+  },
+  "@freelancer.location": {
+    "country": "ES"
+  }
+}
